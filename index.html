@@ -128,25 +128,22 @@
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
                     <!-- Berita -->
-                    <div class="lg:col-span-2">
+                    <div class="lg:col-span-2" x-data="beritaTerkini">
                         <div class="flex justify-between items-center mb-8">
                             <h3 class="text-2xl font-extrabold flex items-center">
                                 <span class="w-8 h-1 bg-primary mr-3"></span> Berita Terkini
                             </h3>
                             <a href="berita.html" class="text-primary text-sm font-bold uppercase hover:underline">Semua <i class="fas fa-arrow-right"></i></a>
                         </div>
-                        <div class="space-y-6" x-data>
-                            <template x-for="item in [
-                                {title:'Atlet Papua Pegunungan Raih 5 Medali Emas di Kejurnas', cat:'Prestasi', date:'18 Feb 2026'},
-                                {title:'KONI Papua Pegunungan Gelar Rapat Kerja Tahunan 2026', cat:'Organisasi', date:'15 Feb 2026'}
-                            ]">
-                                <a href="berita.html" class="flex flex-col md:flex-row gap-6 bg-white shadow-md hover:shadow-lg transition block">
-                                    <img src="./assets/img/bg/papua-pegunungan-dayung.png" class="md:w-60 h-44 object-cover">
+                        <div class="space-y-6">
+                            <template x-for="item in berita" :key="item.id">
+                                <a :href="'berita-detail.html?slug=' + item.slug" class="flex flex-col md:flex-row gap-6 bg-white shadow-md hover:shadow-lg transition block">
+                                    <img :src="item.gambar" class="md:w-60 h-44 object-cover">
                                     <div class="p-5 flex flex-col justify-center">
-                                        <span class="text-xs text-primary font-bold uppercase" x-text="item.cat"></span>
-                                        <h4 class="text-lg font-bold mt-1 mb-2" x-text="item.title"></h4>
-                                        <p class="text-sm text-gray-500 line-clamp-2">Deskripsi singkat berita yang memberikan gambaran umum tentang isi artikel terkait kegiatan KONI Papua Pegunungan.</p>
-                                        <p class="mt-3 text-xs text-gray-400"><i class="far fa-calendar-alt mr-1"></i> <span x-text="item.date"></span></p>
+                                        <span class="text-xs text-primary font-bold uppercase" x-text="item.kategori"></span>
+                                        <h4 class="text-lg font-bold mt-1 mb-2" x-text="item.judul"></h4>
+                                        <p class="text-sm text-gray-500 line-clamp-2" x-text="item.ringkasan"></p>
+                                        <p class="mt-3 text-xs text-gray-400"><i class="far fa-calendar-alt mr-1"></i> <span x-text="item.tanggal_tampil"></span></p>
                                     </div>
                                 </a>
                             </template>
@@ -243,6 +240,7 @@
     <script src="partials/header.js"></script>
     <script src="partials/footer.js"></script>
     <script src="partials/disclaimer.js"></script>
+    <script src="assets/js/berita.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 </html>
