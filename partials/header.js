@@ -28,7 +28,7 @@
         <nav class="container mx-auto px-4 py-3 flex justify-between items-center lg:flex-row flex-col" x-data="{ mobileMenuOpen: false }">
             <div class="flex items-center space-x-3 lg:w-auto w-full justify-center lg:justify-start relative">
                 <a href="index.html" class="flex items-center space-x-3">
-                    <img src="./assets/img/logo-koni.png" alt="Logo KONI" class="h-12">
+                    <img src="./assets/img/logo-koni-papua-pegunungan-transparant.png" alt="Logo KONI" class="h-12">
                     <div class="text-center lg:text-left">
                         <span class="font-bold text-lg leading-none text-primary block">KONI</span>
                         <span class="text-xs font-semibold tracking-widest uppercase block">Papua Pegunungan</span>

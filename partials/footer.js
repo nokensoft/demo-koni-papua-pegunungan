@@ -8,7 +8,7 @@
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div>
                 <a href="index.html" class="inline-block">
-                    <img src="./assets/img/logo-koni.png" class="h-50 mb-4 brightness-200" alt="Logo KONI">
+                    <img src="./assets/img/logo-koni-papua-pegunungan-transparant.png" class="h-50 mb-4 brightness-200" alt="Logo KONI">
                 </a>
                 <p class="text-sm text-gray-400 leading-relaxed">Wadah pembinaan olahraga prestasi di Provinsi Papua Pegunungan untuk mewujudkan Indonesia yang lebih sehat dan berprestasi.</p>
             </div>
