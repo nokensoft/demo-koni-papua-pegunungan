@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita - KONI Papua Pegunungan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+                    colors: {
+                        primary: '#C8102E',
+                        secondary: '#0056b3',
+                        accent: '#F1F5F9',
+                        dark: '#1A1A1A'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="berita" class="bg-gray-50 text-gray-800 font-sans">
+
+    <div id="header-partial"></div>
+
+    <main>
+        <!-- Page Banner -->
+        <section class="page-banner relative py-24 bg-dark overflow-hidden">
+            <img src="./assets/img/bg/papua-pegunungan-dayung.png" class="absolute inset-0 w-full h-full object-cover opacity-20" alt="">
+            <div class="container mx-auto px-4 relative z-10">
+                <h2 class="text-3xl lg:text-5xl font-extrabold text-white uppercase">Berita & Artikel</h2>
+                <div class="flex items-center text-sm text-gray-400 mt-4 space-x-2">
+                    <a href="index.html" class="hover:text-white transition">Beranda</a>
+                    <span>/</span>
+                    <span class="text-primary">Berita</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Berita -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="relative group overflow-hidden">
+                        <img src="./assets/img/bg/papua-pegunungan-dayung.png" class="w-full h-full object-cover min-h-[400px] group-hover:scale-105 transition duration-500" alt="Featured">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-8 text-white">
+                            <span class="text-xs bg-primary px-3 py-1 font-bold uppercase">Headline</span>
+                            <h3 class="text-2xl font-extrabold mt-3 mb-2">Atlet Papua Pegunungan Raih 5 Medali Emas di Kejurnas Atletik 2026</h3>
+                            <p class="text-gray-300 text-sm line-clamp-2">Kontingen Papua Pegunungan berhasil menorehkan prestasi gemilang dalam Kejuaraan Nasional Atletik yang digelar di Jakarta.</p>
+                            <p class="mt-3 text-xs text-gray-400"><i class="far fa-calendar-alt mr-1"></i> 18 Feb 2026</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4" x-data>
+                        <template x-for="item in [
+                            {title:'KONI Papua Pegunungan Gelar Rapat Kerja Tahunan 2026', cat:'Organisasi', date:'15 Feb 2026'},
+                            {title:'Program Beasiswa Atlet Berprestasi Diluncurkan', cat:'Program', date:'10 Feb 2026'},
+                            {title:'Renovasi Stadion Wamena Ditargetkan Selesai Mei 2026', cat:'Infrastruktur', date:'05 Feb 2026'}
+                        ]">
+                            <div class="flex gap-5 bg-white shadow-sm hover:shadow-md transition p-4 border-l-4 border-transparent hover:border-primary">
+                                <img src="./assets/img/bg/man-futsal-papua-pegunungan.png" class="w-32 h-24 object-cover shrink-0">
+                                <div class="flex flex-col justify-center">
+                                    <span class="text-xs text-primary font-bold uppercase" x-text="item.cat"></span>
+                                    <h4 class="font-bold text-sm mt-1 line-clamp-2" x-text="item.title"></h4>
+                                    <p class="text-xs text-gray-400 mt-2"><i class="far fa-calendar-alt mr-1"></i> <span x-text="item.date"></span></p>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Berita Grid + Sidebar -->
+        <section class="py-20 bg-accent" x-data="{ activeCategory: 'semua' }">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+                    <!-- Berita Grid -->
+                    <div class="lg:col-span-3">
+                        <h3 class="text-2xl font-extrabold mb-8 flex items-center">
+                            <span class="w-8 h-1 bg-primary mr-3"></span> Semua Berita
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <template x-for="item in [
+                                {title:'Pelatih Tinju Papua Pegunungan Ikuti Sertifikasi Nasional', cat:'Pembinaan', date:'01 Feb 2026'},
+                                {title:'Cabor Pencak Silat Gelar Seleksi Atlet Baru', cat:'Seleksi', date:'28 Jan 2026'},
+                                {title:'KONI Terima Bantuan Peralatan Olahraga dari Kemenpora', cat:'Bantuan', date:'25 Jan 2026'},
+                                {title:'Atlet Renang Raih Perunggu di Kejurnas Akuatik', cat:'Prestasi', date:'20 Jan 2026'},
+                                {title:'Workshop Anti-Doping untuk Atlet dan Pelatih', cat:'Edukasi', date:'15 Jan 2026'},
+                                {title:'Musyawarah Kabupaten KONI se-Papua Pegunungan', cat:'Organisasi', date:'10 Jan 2026'}
+                            ].filter(i => activeCategory === 'semua' || i.cat.toLowerCase() === activeCategory)">
+                                <div class="bg-white shadow-sm hover:shadow-lg transition">
+                                    <img src="./assets/img/bg/woman-foodbal-papua-pegunungan.png" class="w-full h-75 object-cover">
+                                    <div class="p-5">
+                                        <span class="text-xs text-primary font-bold uppercase" x-text="item.cat"></span>
+                                        <h4 class="font-bold mt-1 mb-2 line-clamp-2 text-sm" x-text="item.title"></h4>
+                                        <p class="text-xs text-gray-400"><i class="far fa-calendar-alt mr-1"></i> <span x-text="item.date"></span></p>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div>
+                        <!-- Kategori -->
+                        <div class="bg-white shadow-sm p-6 mb-8">
+                            <h4 class="font-bold uppercase text-sm mb-4 pb-3 border-b border-primary">Kategori</h4>
+                            <ul class="space-y-2">
+                                <template x-for="cat in ['semua','prestasi','organisasi','pembinaan','infrastruktur','edukasi']">
+                                    <li>
+                                        <button @click="activeCategory = cat"
+                                                :class="activeCategory === cat ? 'text-primary font-bold' : 'text-gray-600'"
+                                                class="text-sm hover:text-primary transition capitalize w-full text-left py-1"
+                                                x-text="cat">
+                                        </button>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+
+                        <!-- Berita Populer -->
+                        <div class="bg-white shadow-sm p-6 mb-8">
+                            <h4 class="font-bold uppercase text-sm mb-4 pb-3 border-b border-primary">Berita Populer</h4>
+                            <div class="space-y-4" x-data>
+                                <template x-for="(item, i) in [
+                                    'Atlet Papua Pegunungan Raih 5 Medali Emas',
+                                    'Renovasi Stadion Wamena Selesai Mei 2026',
+                                    'Program Beasiswa Atlet Berprestasi'
+                                ]">
+                                    <div class="flex items-start space-x-3">
+                                        <span class="text-2xl font-extrabold text-gray-200" x-text="'0' + (i+1)"></span>
+                                        <p class="text-sm font-medium line-clamp-2" x-text="item"></p>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+
+                        <!-- Social -->
+                        <div class="bg-dark text-white p-6">
+                            <h4 class="font-bold uppercase text-sm mb-4 text-primary">Ikuti Kami</h4>
+                            <div class="flex space-x-3">
+                                <a href="#" class="w-10 h-10 bg-gray-800 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="w-10 h-10 bg-gray-800 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="w-10 h-10 bg-gray-800 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-partial"></div>
+
+    <div x-data="scrollTop">
+        <button x-show="visible" @click="goTop()" x-transition class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 flex items-center justify-center shadow-lg hover:bg-red-700 transition z-50">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <script src="partials/header.js"></script>
+    <script src="partials/footer.js"></script>
+    <script src="partials/disclaimer.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
