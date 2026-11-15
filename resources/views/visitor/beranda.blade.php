@@ -165,4 +165,28 @@
         </div>
     </section>
     --}}
+
+    <!-- Video YouTube -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <p class="text-primary font-bold uppercase tracking-widest text-base mb-2">Video</p>
+                <h3 class="text-3xl font-extrabold">KONI Papua Pegunungan di YouTube</h3>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="relative aspect-video bg-dark shadow-xl">
+                    <iframe src="https://www.youtube-nocookie.com/embed/0sKlVCt881M?rel=0"
+                            title="Video KONI Papua Pegunungan" class="absolute inset-0 w-full h-full border-0" loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="text-center mt-8">
+                    <a href="https://www.youtube.com/@KONIPapuaPegunungan" target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-3 bg-red-600 text-white px-7 py-3 font-bold hover:bg-red-700 transition text-base">
+                        <i class="fab fa-youtube text-xl"></i> Kunjungi Channel YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection

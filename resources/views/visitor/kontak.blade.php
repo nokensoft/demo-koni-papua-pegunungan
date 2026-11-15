@@ -37,8 +37,7 @@
                         ['key' => 'sosmed_facebook', 'icon' => 'fa-facebook-f', 'label' => 'Facebook', 'color' => 'bg-blue-600 hover:bg-blue-700'],
                         ['key' => 'sosmed_instagram', 'icon' => 'fa-instagram', 'label' => 'Instagram', 'color' => 'bg-pink-500 hover:bg-pink-600'],
                         ['key' => 'sosmed_youtube', 'icon' => 'fa-youtube', 'label' => 'YouTube', 'color' => 'bg-red-600 hover:bg-red-700'],
-                        ['key' => 'sosmed_twitter', 'icon' => 'fa-x-twitter', 'label' => 'Twitter / X', 'color' => 'bg-gray-900 hover:bg-black'],
-                        ['key' => 'sosmed_tiktok', 'icon' => 'fa-tiktok', 'label' => 'TikTok', 'color' => 'bg-gray-800 hover:bg-gray-900'],
+                        // X (Twitter) dan TikTok disembunyikan dari halaman kontak
                     ])->filter(fn ($item) => !empty($situs[$item['key']]));
                 @endphp
 
@@ -63,10 +62,23 @@
                         </div>
                     </div>
                 @endif
-                <div>
+                @php
+                    // Peta: lokasi Kantor KONI Provinsi Papua Pegunungan (alamat dari Pengaturan Situs).
+                    $alamatKantor = ($situs['alamat'] ?? null) ?: 'Wamena, Jayawijaya, Papua Pegunungan';
+                    $petaEmbed = 'https://maps.google.com/maps?q=' . rawurlencode($alamatKantor) . '&z=15&hl=id&output=embed';
+                    $petaLink = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode($alamatKantor);
+                @endphp
+                <div class="{{ $sosmedLinks->isEmpty() ? 'lg:col-span-2' : '' }}">
                     <p class="text-primary font-bold uppercase tracking-widest text-base mb-2">Lokasi</p>
-                    <h3 class="text-3xl font-extrabold mb-8">Temukan Kami</h3>
-                    <iframe width="100%" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=136.24145507812503%2C-6.189707330332176%2C141.21276855468753%2C-2.180259769681343&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?#map=8/-4.188/138.727&amp;layers=NDG">View Larger Map</a></small>
+                    <h3 class="text-3xl font-extrabold mb-8">Kantor KONI Provinsi</h3>
+                    <div class="bg-white shadow-sm">
+                        <iframe src="{{ $petaEmbed }}" class="w-full h-[380px] block border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                title="Peta lokasi Kantor KONI Provinsi Papua Pegunungan" allowfullscreen></iframe>
+                    </div>
+                    <div class="flex flex-wrap justify-between items-center gap-2 mt-3 text-sm">
+                        <span class="text-gray-500"><i class="fas fa-map-marker-alt text-primary mr-1"></i> {{ $alamatKantor }}</span>
+                        <a href="{{ $petaLink }}" target="_blank" rel="noopener" class="text-primary font-bold hover:underline">Buka di Google Maps <i class="fas fa-external-link-alt ml-1"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -74,4 +74,14 @@ git commit -m "update: hero beranda, berita & galeri 2 kolom, cover 16:9, teks j
 
 git push origin main
 
+git config --global user.email "janzenfaidiban@gmail.com"
+git config --global user.name "Janzen"
+
+
+composer install
+npm run build
+
+php artisan optimize:clear
+php artisan optimize
+
 ```
